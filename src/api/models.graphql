@@ -1,0 +1,59 @@
+type User {
+  id: ID! 
+  username: String! 
+  email: String! 
+  firstName: String 
+  lastName: String
+  bio: String
+  followers: [User!]! 
+  following: [User!]! 
+  posts: [Post!]!
+  likes: [Like!]!
+  comments: [Comment!]!
+  rooms: [Room!]!
+}
+
+type Post {
+  id: ID!
+  location: String
+  caption: String!
+  user: User!
+  files: [File!]!
+  likes: [Like!]!
+  comments: [Comment!]!
+}
+
+type Like {
+  id: ID!
+  user: User!
+  post: Post!
+}
+
+type Comment {
+  id: ID! 
+  text: String!
+  user: User!
+  post: Post!
+}
+
+type File {
+  id: ID! 
+  url: String!
+  post: Post!
+}
+
+type Room {
+  id: ID!
+  participants: [User!]!
+  messages: [Message!]!
+}
+
+type Message {
+  id: ID! 
+  text: String!
+  from: User! 
+  to: User!
+  room: Room!
+}
+
+# graphql은 prisma 문법을 이해하지 못하므로 prisma파일 전체 복사 후 directive 제거해줘야함.
