@@ -1,16 +1,17 @@
 type User {
-  id: ID! 
-  username: String! 
-  email: String! 
-  firstName: String 
+  id: ID!
+  username: String!
+  email: String!
+  firstName: String
   lastName: String
   bio: String
-  followers: [User!]! 
-  following: [User!]! 
+  followers: [User!]!
+  following: [User!]!
   posts: [Post!]!
   likes: [Like!]!
   comments: [Comment!]!
   rooms: [Room!]!
+  loginSecret: String
 }
 
 type Post {
@@ -30,14 +31,14 @@ type Like {
 }
 
 type Comment {
-  id: ID! 
+  id: ID!
   text: String!
   user: User!
   post: Post!
 }
 
 type File {
-  id: ID! 
+  id: ID!
   url: String!
   post: Post!
 }
@@ -49,9 +50,9 @@ type Room {
 }
 
 type Message {
-  id: ID! 
+  id: ID!
   text: String!
-  from: User! 
+  from: User!
   to: User!
   room: Room!
 }
